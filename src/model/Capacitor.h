@@ -37,7 +37,7 @@ class Capacitor : public Block {
    */
   Capacitor(int id, Model* model)
       : Block(id, model, BlockType::capacitor, BlockClass::vessel,
-              {{"Cp", InputParameter()}}) {}
+              {{"C", InputParameter()}}) {}
 
   /// @brief Local IDs of the parameters
   enum ParamId { CP = 0 };
