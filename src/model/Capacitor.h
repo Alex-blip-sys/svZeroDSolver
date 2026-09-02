@@ -17,7 +17,7 @@
  * ### Governing equations
  *
  * \f[
- * C_p \, \dot{P}_{in} - Q_{in} = 0
+ * C_p \, (\dot{P}_{in} - \dot{P}_{out}) - Q_{in} = 0
  * \f]
  * \f[
  * Q_{in} - Q_{out} = 0
@@ -27,7 +27,7 @@
  *
  * * `Cp` — Pulmonary capacitance
  */
-class BloodVesselRC : public Block {
+class Capacitor : public Block {
  public:
   /**
    * @brief Construct a new Capacitor object
@@ -35,19 +35,19 @@ class BloodVesselRC : public Block {
    * @param id Global ID of the block
    * @param model The model to which the block belongs
    */
-  BloodVesselRC(int id, Model* model)
+  Capacitor(int id, Model* model)
       : Block(id, model, BlockType::Capacitor, BlockClass::vessel,
               {{"Cp", InputParameter()}}) {}
 
   /// @brief Local IDs of the parameters
-  enum ParamId { CP = 1 };
+  enum ParamId { CP = 0 };
 
   void setup_dofs(DOFHandler& dofhandler) override;
   void update_constant(SparseSystem& system,
                        std::vector<double>& parameters) override;
 
   /// @brief Number of triplets of element
-  TripletsContributions num_triplets{5, 1, 0};
+  TripletsContributions num_triplets{3, 2, 0};
 };
 
 #endif  // SVZERODSOLVER_MODEL_CAPACITOR_HPP_
