@@ -36,7 +36,7 @@ class Capacitor : public Block {
    * @param model The model to which the block belongs
    */
   Capacitor(int id, Model* model)
-      : Block(id, model, BlockType::Capacitor, BlockClass::vessel,
+      : Block(id, model, BlockType::capacitor, BlockClass::vessel,
               {{"Cp", InputParameter()}}) {}
 
   /// @brief Local IDs of the parameters
