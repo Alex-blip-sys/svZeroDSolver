@@ -231,12 +231,20 @@ void Model::to_steady() {
     param.to_steady();
   }
 
-  // Special handling for time-varying capacitance
+  // Special handling for capacitance during steady initialization
   for (size_t i = 0; i < get_num_blocks(true); i++) {
     get_block(i)->steady = true;
+
     if ((block_types[i] == BlockType::windkessel_bc) ||
         (block_types[i] == BlockType::closed_loop_rcr_bc)) {
       int param_id_capacitance = blocks[i]->global_param_ids[1];
+      double value = parameters[param_id_capacitance].get(0.0);
+      param_value_cache.insert({param_id_capacitance, value});
+      parameters[param_id_capacitance].update(0.0);
+    }
+
+    if (block_types[i] == BlockType::capacitor) {
+      int param_id_capacitance = blocks[i]->global_param_ids[0];
       double value = parameters[param_id_capacitance].get(0.0);
       param_value_cache.insert({param_id_capacitance, value});
       parameters[param_id_capacitance].update(0.0);
