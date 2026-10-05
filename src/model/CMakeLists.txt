@@ -25,6 +25,7 @@ set(CXXSRCS
   DOFHandler.cpp
   FlowReferenceBC.cpp
   Junction.cpp
+  KungLung.cpp
   Model.cpp
   Node.cpp
   OpenLoopCoronaryBC.cpp
