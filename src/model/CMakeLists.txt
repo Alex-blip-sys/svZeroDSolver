@@ -61,6 +61,7 @@ set(HDRS
   DOFHandler.h
   FlowReferenceBC.h
   Junction.h
+  KungLung.h
   Model.h
   Node.h
   OpenLoopCoronaryBC.h
