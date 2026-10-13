@@ -33,9 +33,8 @@ class KungLung : public Block {
     RPV_TOP = 2,
     RPV_BOTTOM = 3,
     C_TOP = 4,
-    C_BOTTOM = 5,
-    T_SOURCE = 6,
-    P_SOURCE = 7
+    C_BOTTOM = 5
+    P_SOURCE = 6
   };
 
   KungLung(int id, Model* model)
@@ -47,7 +46,7 @@ class KungLung : public Block {
                   {"Rpv_bottom", InputParameter()},
                   {"C_top", InputParameter()},
                   {"C_bottom", InputParameter()},
-                  {"t_source", InputParameter(false, true)},
+                  {"t", InputParameter(false, true)},
                   {"P_source", InputParameter(false, true)},
               }) {}
 
