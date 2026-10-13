@@ -33,7 +33,7 @@ class KungLung : public Block {
     RPV_TOP = 2,
     RPV_BOTTOM = 3,
     C_TOP = 4,
-    C_BOTTOM = 5
+    C_BOTTOM = 5,
     P_SOURCE = 6
   };
 
